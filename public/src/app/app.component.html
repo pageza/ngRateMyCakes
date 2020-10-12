@@ -1,0 +1,39 @@
+<div class="card-header">
+  <h1>Rate my Cakes</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card col-4" >
+      <h3>Submit a Cake to be rated</h3>
+      <hr>
+      <form (submit)="createCake()">
+        <label>Baker Name:
+        <input type="text" name="newCake.baker" [(ngModel)]="newCake.baker" placeholder="Baker">
+        </label>
+        <label>Image URL:
+        <input type="text" name="newCake.ImageUrl" [(ngModel)]="newCake.ImageUrl" placeholder="URL">
+        </label>
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <div class="col-8" >
+          <div *ngFor="let cake of cakes">
+            <p>{{cake.imageURL}}</p>
+            <form (submit)="addReviewToService()">
+              <select name="review.rating" [(ngModel)]="review.rating" >
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5" selected>5 Stars</option>
+              </select>
+              <input type="text" name="review.comment" [(ngModel)]="review.comment" placeholder="Enter your comment here">
+              <br>
+              <input type="submit" value="Rate!">
+            </form>
+          </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,24 @@
+{
+  "name": "1955API",
+  "version": "1.0.0",
+  "description": "- [ ] GET route to '/' will serve all entries - [ ] GET route to '/new/:name' will add a new name to the database - [ ] GET route to '/remove/:name' will delete a name from the database - [ ] GET route to '/:name' will return the document for the name entered",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pageza/api1955.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pageza/api1955/issues"
+  },
+  "homepage": "https://github.com/pageza/api1955#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.6"
+  }
+}
