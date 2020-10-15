@@ -14,7 +14,10 @@ export class HttpService {
     return this._http.get('/cakes');
   }
   addReview(review) {
-    console.log(review);
-    return this._http.post('/cakes', review);
+    return this._http.put('/cakes/' + review.data._cake, review);
   }
+  getOneCake(cake) {
+    return this._http.get('/cakes/' + cake.id );
+  }
+
 }

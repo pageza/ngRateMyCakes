@@ -19,8 +19,8 @@
     </div>
     <div class="col-8" >
           <div *ngFor="let cake of cakes">
-            <p>{{cake.imageURL}}</p>
-            <form (submit)="addReviewToService()">
+            <a [routerLink]="['/cake/', cake._id]" >{{cake.imageURL}}</a>
+            <form (submit)="addReviewToService(cake._id)">
               <select name="review.rating" [(ngModel)]="review.rating" >
                 <option value="1">1 Star</option>
                 <option value="2">2 Stars</option>
@@ -28,7 +28,8 @@
                 <option value="4">4 Stars</option>
                 <option value="5" selected>5 Stars</option>
               </select>
-              <input type="text" name="review.comment" [(ngModel)]="review.comment" placeholder="Enter your comment here">
+              <input  hidden name="cakeID" [value]="cake._id"  >
+              <input  type="text" name="review.comment" [(ngModel)]="review.comment" placeholder="Enter your comment here">
               <br>
               <input type="submit" value="Rate!">
             </form>

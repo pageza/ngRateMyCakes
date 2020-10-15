@@ -26,7 +26,9 @@ export class AppComponent {
     const observable = this._httpService.getAllCakes();
     observable.subscribe(cakes => this.cakes = cakes );
   }
-  addReviewToService() {
+  addReviewToService(cakeID) {
+    this.review._cake = cakeID;
+    console.log('this is in the component', this.review);
     const observable = this._httpService.addReview({data: this.review});
     observable.subscribe(data => console.log('posted: ', data));
     this.review = {rating: null, comment: '', _cake: null};

@@ -11,7 +11,7 @@ module.exports = (app) => {
         cake.allCakes(req,res)
     });
 
-    app.get('/cake/:id', (req, res) => {
+    app.get('/cakes/:id', (req, res) => {
         cake.oneCake(req,res)
     });
 

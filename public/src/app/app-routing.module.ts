@@ -4,7 +4,7 @@ import {DisplayCakeComponent} from './display-cake/display-cake.component';
 
 
 const routes: Routes = [
-  {path: 'cake', component: DisplayCakeComponent}
+  {path: 'cake/:id', component: DisplayCakeComponent}
 ];
 
 @NgModule({

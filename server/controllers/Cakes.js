@@ -10,9 +10,16 @@ module.exports = {
             .catch(err => res.json(err))
     },
     oneCake: (req,res) => {
-        Cake.findOne({_id: req.params.id})
-            .then( cake => res.json(cake))
-            .catch( err => res.json(err))
+       Cake.findOne({_id: req.params.id})
+           .populate("reviews")
+           .exec((err,cake) => {
+               if(err){ res.json(err)}
+               else{res.json(cake)}
+
+           })
+        // Cake.findOne({_id: req.params.id})
+        //     .then( cake => res.json(cake))
+        //     .catch( err => res.json(err))
     },
     createCake: (req,res) => {
         const newCake = new Cake()
@@ -24,7 +31,7 @@ module.exports = {
     },
     reviewCake: (req,res) => {
         Cake.findOne({_id: req.params.id}, (err,review) => {
-            let newReview = new Review({comment: req.body.comment, rating: req.body.rating});
+            let newReview = new Review({comment: req.body.data.comment, rating: req.body.data.rating});
             newReview._cake = req.params.id;
             newReview.save(err => {
                 if(err){
