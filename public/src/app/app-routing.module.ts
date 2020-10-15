@@ -4,11 +4,10 @@ import {DisplayCakeComponent} from './display-cake/display-cake.component';
 
 
 const routes: Routes = [
-  {path: 'cake/:id', component: DisplayCakeComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

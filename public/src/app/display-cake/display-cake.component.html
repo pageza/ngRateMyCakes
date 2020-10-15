@@ -1,5 +1,14 @@
-{{cake.imageURL}}
-<div *ngFor="let review of cake.reviews">
-  {{review.comment}}
-  <p>{{review.rating}}</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      {{cakeToShow.imageURL}}
+    </div>
+    <div class="col-9">
+      <div *ngFor="let review of cakeToShow.reviews">
+        {{review.comment}}
+        <p>{{review.rating}}</p>
+      </div>
+    </div>
+  </div>
 </div>
+

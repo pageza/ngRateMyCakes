@@ -19,7 +19,8 @@
     </div>
     <div class="col-8" >
           <div *ngFor="let cake of cakes">
-            <a [routerLink]="['/cake/', cake._id]" >{{cake.imageURL}}</a>
+            <a (click)="getOneCakeFromService(cake._id)" >{{cake.imageURL}}</a>
+<!--            <a [routerLink]="['/cake/', cake._id]" (click)="loadCake(cake._id)" >{{cake.imageURL}}</a>-->
             <form (submit)="addReviewToService(cake._id)">
               <select name="review.rating" [(ngModel)]="review.rating" >
                 <option value="1">1 Star</option>
@@ -37,4 +38,4 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+<app-display-cake *ngIf="selectedCake" [cakeToShow]="selectedCake"></app-display-cake>
