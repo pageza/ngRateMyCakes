@@ -6,7 +6,7 @@ import {HttpService} from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   newCake: object;
   cakes: any;
   selectedCake: any;
@@ -28,9 +28,14 @@ export class AppComponent {
   }
   addReviewToService(cakeID) {
     this.review._cake = cakeID;
-    console.log('this is in the component', this.review);
     const observable = this._httpService.addReview({data: this.review});
     observable.subscribe(data => console.log('posted: ', data));
     this.review = {rating: null, comment: '', _cake: null};
+  }
+  createCakeFromService(cake) {
+    const observable = this._httpService.createCake(cake);
+    observable.subscribe( data => console.log('Created: ', data));
+    this.newCake = {baker: '', imageURL: '', reviews: [] };
+    this.ngOnInit();
   }
 }

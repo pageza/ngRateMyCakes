@@ -22,9 +22,10 @@ module.exports = {
         //     .catch( err => res.json(err))
     },
     createCake: (req,res) => {
+        console.log(req.body)
         const newCake = new Cake()
         newCake.baker = req.body.baker;
-        newCake.imageURL = req.body.imageUrl;
+        newCake.imageURL = req.body.imageURL;
         newCake.save()
             .then( newCake => res.redirect('/cakes'))
             .catch( err => res.json(err))

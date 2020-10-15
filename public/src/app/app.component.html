@@ -1,17 +1,17 @@
 <div class="card-header">
   <h1>Rate my Cakes</h1>
 </div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="card col-4" >
+<div class="container-fluid " >
+  <div class="row" >
+    <div class="card col-4">
       <h3>Submit a Cake to be rated</h3>
       <hr>
-      <form (submit)="createCake()">
+      <form (submit)="createCakeFromService(newCake)">
         <label>Baker Name:
         <input type="text" name="newCake.baker" [(ngModel)]="newCake.baker" placeholder="Baker">
         </label>
         <label>Image URL:
-        <input type="text" name="newCake.ImageUrl" [(ngModel)]="newCake.ImageUrl" placeholder="URL">
+        <input type="text" name="newCake.ImageUrl" [(ngModel)]="newCake.imageURL" placeholder="URL">
         </label>
         <br>
         <input type="submit" value="Submit">

@@ -19,5 +19,7 @@ export class HttpService {
   getOneCake(cake) {
     return this._http.get('/cakes/' + cake.id );
   }
-
+  createCake(cake) {
+    return this._http.post('/cakes', cake);
+  }
 }
