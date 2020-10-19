@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit() {
     this.getCakesFromService();
-    console.log(this.selectedCake);
     this.newCake = {baker: '', imageURL: '', reviews: [] };
     this.review = {rating: null, comment: '', _cake: null};
   }

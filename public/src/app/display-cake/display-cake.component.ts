@@ -9,17 +9,27 @@ import { HttpService } from '../http.service';
 })
 export class DisplayCakeComponent implements OnInit {
   @Input() cakeToShow: any;
+  avrRating: number;
+
   // tslint:disable-next-line:variable-name
   constructor(private _route: ActivatedRoute, private _httpService: HttpService) { }
 
   ngOnInit() {
+    this.avrRating = this.calculateAverage(this.cakeToShow);
+  }
+
+  calculateAverage(cake) {
+    // TODO: figure out logic for average
+    let average: number = 0;
+    for (let i = 0; i < cake.reviews.length; i++ ) {
+      // console.log('this is the ratings',cake.reviews[i].rating);
+      average = average + cake.reviews[i].rating;
+      average = average / cake.reviews.length;
+    }
+
+    return average;
   }
 
 
-  // getOneCakeFromService(cake) {
-  //   const observable = this._httpService.getOneCake(cake);
-  //   observable.subscribe(data => this.cake = data);
-  //   // observable.subscribe(data => console.log(data))
-  // }
 
 }

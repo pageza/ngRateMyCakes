@@ -3,7 +3,7 @@
 </div>
 <div class="container-fluid " >
   <div class="row" >
-    <div class="card col-4">
+    <div class="card col-4" style="background: green">
       <h3>Submit a Cake to be rated</h3>
       <hr>
       <form (submit)="createCakeFromService(newCake)">
@@ -17,10 +17,10 @@
         <input type="submit" value="Submit">
       </form>
     </div>
-    <div class="col-8" >
+    <div class="col-8 overflow-auto" style="height: 200px" >
           <div *ngFor="let cake of cakes">
-            <a (click)="getOneCakeFromService(cake._id)" >{{cake.imageURL}}</a>
-<!--            <a [routerLink]="['/cake/', cake._id]" (click)="loadCake(cake._id)" >{{cake.imageURL}}</a>-->
+<!--            <img src="" (click)="getOneCakeFromService(cake._id)" ></img>-->
+            <img src="{{cake.imageURL}}" alt="{{cake.imageURL}}" style="height: 100px" (click)="getOneCakeFromService(cake._id)">
             <form (submit)="addReviewToService(cake._id)">
               <select name="review.rating" [(ngModel)]="review.rating" >
                 <option value="1">1 Star</option>

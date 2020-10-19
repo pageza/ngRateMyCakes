@@ -1,9 +1,11 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row" style="background: brown;">
     <div class="col-3">
-      {{cakeToShow.imageURL}}
+      <img src="{{cakeToShow.imageURL}}" style="height: 200px">
     </div>
     <div class="col-9">
+      <h1> this is the average rating {{avrRating}}</h1>
+
       <div *ngFor="let review of cakeToShow.reviews">
         {{review.comment}}
         <p>{{review.rating}}</p>
