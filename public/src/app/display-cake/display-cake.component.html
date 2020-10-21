@@ -4,7 +4,7 @@
       <img src="{{cakeToShow.imageURL}}" style="height: 200px">
     </div>
     <div class="col-9">
-      <h1> this is the average rating {{avrRating}}</h1>
+      <h1> this is the average rating {{avrRating | number: '1.2-2'}}</h1>
 
       <div *ngFor="let review of cakeToShow.reviews">
         {{review.comment}}

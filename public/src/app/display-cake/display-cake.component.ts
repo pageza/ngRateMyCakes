@@ -19,15 +19,13 @@ export class DisplayCakeComponent implements OnInit {
   }
 
   calculateAverage(cake) {
-    // TODO: figure out logic for average
-    let average: number = 0;
+    let average: any = 0;
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < cake.reviews.length; i++ ) {
-      // console.log('this is the ratings',cake.reviews[i].rating);
       average = average + cake.reviews[i].rating;
-      average = average / cake.reviews.length;
     }
 
-    return average;
+    return average / cake.reviews.length;
   }
 
 
